@@ -14,7 +14,6 @@ pathsToList=glob.glob(targetPattern)
 
 
 for file in pathsToList:
-    if(str(file).find('MSS'))
     file_zip = zipfile.ZipFile(file,'r')
     # print(str(file),'current file')
 
