@@ -14,13 +14,14 @@ pathsToList=glob.glob(targetPattern)
 
 
 for file in pathsToList:
+    if(str(file).find('MSS'))
     file_zip = zipfile.ZipFile(file,'r')
     # print(str(file),'current file')
 
 
     objectToListWrite = []
     for file_info in file_zip.infolist():
-        if file_info.filename.endswith('.xml') or file_info.filename.endswith('.shp') or file_info.filename.endswith('.shx') or file_info.filename.endswith('.dbf') or file_info.filename.endswith('.txt') :
+        if file_info.filename.endswith('.xml') or file_info.filename.endswith('.shp') or file_info.filename.endswith('.shx') or file_info.filename.endswith('.dbf') or file_info.filename.endswith('.txt')  or file_info.filename.endswith('.prj'):
         # if file_info.filename.endswith('.xml') or file_info.filename.endswith('.shp') or file_info.filename.endswith('.shx') or file_info.filename.endswith('.dbf') or file_info.filename.endswith('.txt') :
             objectToListWrite.append(file_info.filename)
             
