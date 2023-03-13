@@ -21,6 +21,7 @@ for file in pathsToList:
     objectToListWrite = []
     for file_info in file_zip.infolist():
         if file_info.filename.endswith('.xml') or file_info.filename.endswith('.shp') or file_info.filename.endswith('.shx') or file_info.filename.endswith('.dbf') or file_info.filename.endswith('.txt') :
+        # if file_info.filename.endswith('.xml') or file_info.filename.endswith('.shp') or file_info.filename.endswith('.shx') or file_info.filename.endswith('.dbf') or file_info.filename.endswith('.txt') :
             objectToListWrite.append(file_info.filename)
             
 
