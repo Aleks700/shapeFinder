@@ -15,19 +15,35 @@ pathsToList=glob.glob(targetPattern)
 
 for file in pathsToList:
     file_zip = zipfile.ZipFile(file,'r')
+    # print(str(file),'current file')
 
 
     objectToListWrite = []
     for file_info in file_zip.infolist():
-        if file_info.filename.endswith('.tiff')!=True or file_info.filename.endswith('.tif')!=True or file_info.filename.endswith('.jpg')!=True or file_info.filename.endswith('.TIFF')!=True or file_info.filename.endswith('.TIF')!=True:
+        if file_info.filename.endswith('.xml') or file_info.filename.endswith('.shp') or file_info.filename.endswith('.shx') or file_info.filename.endswith('.dbf') or file_info.filename.endswith('.txt') :
             objectToListWrite.append(file_info.filename)
             
 
             # print(file_info.filename)
             # file_zip.extract(file_info.filename,'.NewShape')
-    print(objectToListWrite)
-    for list in objectToListWrite:
-        file_zip.extract(file_info.filename,'.NewShape/'+file.index)
+
+    # print(str(file_info))
+
+
+    for i in objectToListWrite:
+        file_zip.extract(i,'.NewShape')
+       
+
+
+
+
+
+    # for list in objectToListWrite:
+    #     file_zip.extract(file_info.filename,'.NewShape/')
+
+
+
+
     # file_zip.extract(file_info.filename,'.NewShape')
 
 file_zip.close()
