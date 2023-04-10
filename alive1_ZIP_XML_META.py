@@ -80,7 +80,6 @@ for root, dirs, files in os.walk(jpgDir):
     for i in files:
         p = os.path.join(os.getcwd(),root,i)
         readed = open(p,'r').readlines()
-        readed = open(p,'r').readlines()
         joinedString = "".join(readed)
         # print("row"+'\t'+  joinedString[joinedString.find(rowStart)+len(rowStart):joinedString.find(rowEnd)]) 
         # print("column"+'\t'+joinedString[joinedString.find(columnStart)+len(columnStart) :joinedString.find(columnEnd)]) 

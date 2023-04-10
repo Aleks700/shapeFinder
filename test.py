@@ -16,31 +16,22 @@ columnEnd  = '</ImageColumnGSD>'
 # print(os.path.exists(os.path.join(os.getcwd(),jpgDir)))
 
 
+dataToWrite = []
 
 
-for root, dirs, files in os.walk('Turk_08032023_METAOne'):
+for root, dirs, files in os.walk('.JPG_optim_Turkestan11032023Meta'):
 
     for i in files:
         p = os.path.join(os.getcwd(),root,i)
-        # print(p)
         readed = open(p,'r').readlines()
         joinedString = "".join(readed)
-        # type(readed.find(rowStart))
-        # type(readed.find(rowStart))
-        # type(readed.find(rowStart))
-        # type(readed.find(rowStart))
-       
-        # print(readed.find(rowStart))
-        # print(readed.find(rowEnd))
-        # print(readed.find(columnStart))
-        # print(readed.find(columnEnd))
+        # print("row"+'\t'+  joinedString[joinedString.find(rowStart)+len(rowStart):joinedString.find(rowEnd)]) 
+        # print("column"+'\t'+joinedString[joinedString.find(columnStart)+len(columnStart) :joinedString.find(columnEnd)]) 
+        dataToWrite.append([i,joinedString[joinedString.find(rowStart)+len(rowStart):joinedString.find(rowEnd)],joinedString[joinedString.find(columnStart)+len(columnStart) :joinedString.find(columnEnd)],'\n'])
         
-        
-        
-        
-  
-        print("row"+'\t'+  joinedString[joinedString.find(rowStart)+len(rowStart):joinedString.find(rowEnd)]) 
-        print("column"+'\t'+joinedString[joinedString.find(columnStart)+len(columnStart) :joinedString.find(columnEnd)]) 
-        
-        
-   
+print(dataToWrite)
+f = open('meta_To_exisTurkestan11032023Meta.txt','w')
+for i in dataToWrite:
+    print(i)
+    toWrite = i
+    f.writelines(toWrite)
