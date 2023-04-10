@@ -6,12 +6,15 @@ import shutil
 
 
 
-pathToExtract = 'Turk_08032023_META'
-targetPattern = r"Y:\\1.Turk.obl\\08.03.2023\\*.zip"
+pathToExtract = 'Akt05042023'
+targetPattern = r"Y:\\2.Akt.obl\\05.04.2023\\*.zip"
 pathsToList=glob.glob(targetPattern)
 
 
-
+rowStart  = '<ImageRowGSD>'
+rowEnd  = '</ImageRowGSD>'
+columnStart  = '<ImageColumnGSD>'
+columnEnd  = '</ImageColumnGSD>'
 
 
 
@@ -62,18 +65,28 @@ for root, dirs, files in os.walk(pathToWalk):
 
 for i in data_to_copy:
     shutil.copy2(i, jpgDir)
-    # shutil.copy(i,'./data')
+    
     print(i)
     
     
+
+
+
+
+dataToWrite = []
+
 for root, dirs, files in os.walk(jpgDir):
-    # print(root)
-    print(dirs)
-    # print(files)
 
     for i in files:
         p = os.path.join(os.getcwd(),root,i)
-        print(p)
-        readed = open(p,'r')
-
-
+        readed = open(p,'r').readlines()
+        readed = open(p,'r').readlines()
+        joinedString = "".join(readed)
+        # print("row"+'\t'+  joinedString[joinedString.find(rowStart)+len(rowStart):joinedString.find(rowEnd)]) 
+        # print("column"+'\t'+joinedString[joinedString.find(columnStart)+len(columnStart) :joinedString.find(columnEnd)]) 
+        dataToWrite.append([i,joinedString[joinedString.find(rowStart)+len(rowStart):joinedString.find(rowEnd)],joinedString[joinedString.find(columnStart)+len(columnStart) :joinedString.find(columnEnd)],'\n'])
+      
+print(dataToWrite)
+f = open('meta_To_exist_05042023.txt','w')
+for i in dataToWrite:
+    f.writelines(i)
