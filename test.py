@@ -6,9 +6,9 @@ import os
 
 
 rowStart  = '<ImageRowGSD>'
-rowEnd  = '<ImageRowGSD>'
+rowEnd  = '</ImageRowGSD>'
 columnStart  = '<ImageColumnGSD>'
-columnEnd  = '<ImageColumnGSD>'
+columnEnd  = '</ImageColumnGSD>'
 # print(len(rowStart))
 # jpgDir = 'Meta'
 # print(os.mkdir(jpgDir))
@@ -23,7 +23,8 @@ for root, dirs, files in os.walk('Turk_08032023_METAOne'):
     for i in files:
         p = os.path.join(os.getcwd(),root,i)
         # print(p)
-        readed = open(p,'r').read()
+        readed = open(p,'r').readlines()
+        joinedString = "".join(readed)
         # type(readed.find(rowStart))
         # type(readed.find(rowStart))
         # type(readed.find(rowStart))
@@ -37,17 +38,9 @@ for root, dirs, files in os.walk('Turk_08032023_METAOne'):
         
         
         
-        
-        # print(readed[readed.find(rowStart):readed.find(rowEnd)]) 
-        # print(readed[readed.find(columnStart) :readed.find(columnEnd)]) 
-        print(readed[1:50])
-        
-        
-        
-        
-        
-        # print(readed.slice())
-        # print(type(readed) )
+  
+        print("row"+'\t'+  joinedString[joinedString.find(rowStart)+len(rowStart):joinedString.find(rowEnd)]) 
+        print("column"+'\t'+joinedString[joinedString.find(columnStart)+len(columnStart) :joinedString.find(columnEnd)]) 
         
         
    
