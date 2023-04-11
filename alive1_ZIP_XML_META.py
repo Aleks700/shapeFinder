@@ -68,9 +68,6 @@ for i in data_to_copy:
     
     print(i)
     
-    
-
-
 
 
 dataToWrite = []
