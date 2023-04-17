@@ -13,7 +13,7 @@ import glob
 
 
 # targetPattern = r"\\10.20.1.246\\mnt\\kgs-data\\aerospace\\head\\2.Akt.obl\\08.03.2023*.zip"
-targetPattern = r"Y:\\3.Atyr.obl\\08.04.2023\\*.zip"
+targetPattern = r"Y:\\3.Atyr.obl\\12.04.2023\\*.zip"
 pathsToList=glob.glob(targetPattern)
 # print(pathsToList)
 
@@ -49,7 +49,7 @@ for file in pathsToList:
 
 
     for i in objectToListWrite:
-        file_zip.extract(i,'.Atyrau08042023_JPG')
+        file_zip.extract(i,'.Atyrau12042023_JPG')
        
     
         print(i)

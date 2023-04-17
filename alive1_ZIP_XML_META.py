@@ -6,8 +6,8 @@ import shutil
 
 
 
-pathToExtract = 'Akt05042023'
-targetPattern = r"Y:\\2.Akt.obl\\05.04.2023\\*.zip"
+pathToExtract = 'Meta_Akt12042023'
+targetPattern = r"Y:\\3.Atyr.obl\\12.04.2023\\*.zip"
 pathsToList=glob.glob(targetPattern)
 
 
@@ -80,9 +80,9 @@ for root, dirs, files in os.walk(jpgDir):
         joinedString = "".join(readed)
         # print("row"+'\t'+  joinedString[joinedString.find(rowStart)+len(rowStart):joinedString.find(rowEnd)]) 
         # print("column"+'\t'+joinedString[joinedString.find(columnStart)+len(columnStart) :joinedString.find(columnEnd)]) 
-        dataToWrite.append([i,joinedString[joinedString.find(rowStart)+len(rowStart):joinedString.find(rowEnd)],joinedString[joinedString.find(columnStart)+len(columnStart) :joinedString.find(columnEnd)],'\n'])
+        dataToWrite.append([i,'\t',joinedString[joinedString.find(rowStart)+len(rowStart):joinedString.find(rowEnd)],'\t',joinedString[joinedString.find(columnStart)+len(columnStart) :joinedString.find(columnEnd)],'\n'])
       
 print(dataToWrite)
-f = open('meta_To_exist_05042023.txt','w')
+f = open('meta_12042023.txt','w')
 for i in dataToWrite:
     f.writelines(i)

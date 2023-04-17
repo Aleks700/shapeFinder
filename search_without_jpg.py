@@ -3,12 +3,12 @@ import glob
 import shutil
 
 
-jpgDir = '.JPG_optim_Atyrau09042023'
+jpgDir = '.JPG_optim_Atyrau12042023'
 
 os.mkdir(jpgDir)
 data_to_copy=[]
 
-for root, dirs, files in os.walk(r"Y:\\3.Atyr.obl\\09.04.2023\\part3"):
+for root, dirs, files in os.walk(r"C:\\Users\\g.bissenalina\\Downloads\\shapeFinder\\.Atyrau12042023_JPG"):
     for file in files:
         if file.endswith('.jpg')  and  (file.find('thumb')==-1)  and  (file.find('MSS')!=-1):
             data_to_copy.append(os.path.join(root, file))
