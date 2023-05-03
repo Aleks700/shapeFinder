@@ -3,12 +3,16 @@ import glob
 import shutil
 
 
-jpgDir = '.JPG_optim_Atyrau12042023'
 
-os.mkdir(jpgDir)
+pathToFolder = r"Y:\\6.WstKaz.obl\\27.04.2023\\1\\"
+toExtract = 'JPG_WestQaz_270423_1\\'
+
+
+
+os.mkdir(toExtract)
 data_to_copy=[]
 
-for root, dirs, files in os.walk(r"C:\\Users\\g.bissenalina\\Downloads\\shapeFinder\\.Atyrau12042023_JPG"):
+for root, dirs, files in os.walk(pathToFolder):
     for file in files:
         if file.endswith('.jpg')  and  (file.find('thumb')==-1)  and  (file.find('MSS')!=-1):
             data_to_copy.append(os.path.join(root, file))
@@ -18,7 +22,7 @@ for root, dirs, files in os.walk(r"C:\\Users\\g.bissenalina\\Downloads\\shapeFin
 
 for i in data_to_copy:
   
-    shutil.copy2(i, jpgDir)
+    shutil.copy2(i, toExtract)
     # shutil.copy(i,'./data')
     print(i)
 

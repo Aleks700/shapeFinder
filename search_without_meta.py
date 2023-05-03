@@ -3,8 +3,10 @@ import glob
 import shutil
 
 
-jpgDir = 'Meta_Atyrau_17042023'
 
+pathToFolder =  r"Y:\\6.WstKaz.obl\\27.04.2023\\1\\"
+toExtract = 'XML_WestQaz_270423_1'
+txtFileName = 'XML_WestQaz_270423_1.txt'
 
 
 
@@ -13,10 +15,10 @@ rowEnd  = '</ImageRowGSD>'
 columnStart  = '<ImageColumnGSD>'
 columnEnd  = '</ImageColumnGSD>'
 
-os.mkdir(jpgDir)
+os.mkdir(toExtract)
 data_to_copy=[]
 
-for root, dirs, files in os.walk(r"Y:\\3.Atyr.obl\\17.04.2023\\L1"):
+for root, dirs, files in os.walk(pathToFolder):
     for file in files:
         if file.endswith('.xml')    and  (file.find('meta')!=-1)  and (file.find('PAN')!=-1):
             data_to_copy.append(os.path.join(root, file))
@@ -26,7 +28,7 @@ for root, dirs, files in os.walk(r"Y:\\3.Atyr.obl\\17.04.2023\\L1"):
 
 for i in data_to_copy:
   
-    shutil.copy2(i, jpgDir)
+    shutil.copy2(i, toExtract)
     # shutil.copy(i,'./data')
     print(i)
 
@@ -37,7 +39,7 @@ for i in data_to_copy:
 
 dataToWrite = []
 
-for root, dirs, files in os.walk(jpgDir):
+for root, dirs, files in os.walk(toExtract):
 
     for i in files:
         p = os.path.join(os.getcwd(),root,i)
@@ -48,7 +50,7 @@ for root, dirs, files in os.walk(jpgDir):
         dataToWrite.append([i,'\t',joinedString[joinedString.find(rowStart)+len(rowStart):joinedString.find(rowEnd)],'\t',joinedString[joinedString.find(columnStart)+len(columnStart) :joinedString.find(columnEnd)],'\n'])
       
 print(dataToWrite)
-f = open('meta_Atyrau_17042023.txt','w')
+f = open(txtFileName,'w')
 for i in dataToWrite:
     # toWriteLine = str(i)+"\t"
     # f.writelines([i,'\t'])
