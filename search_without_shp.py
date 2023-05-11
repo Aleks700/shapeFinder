@@ -3,8 +3,8 @@ import glob
 import shutil
 
 
-pathToFolder = r"Y:\\6.WstKaz.obl\\27.04.2023\\1\\"
-toExtract = 'SHP_WestQaz_270423_1'
+pathToFolder = r"V:\4.EstKaz.obl+\10.05.2023\\"
+toExtract = 'SHP_4.EstKaz.obl+10.05.2023\\'
 
 
 

@@ -4,9 +4,10 @@ import shutil
 
 
 
-pathToFolder =  r"Y:\\6.WstKaz.obl\\27.04.2023\\1\\"
-toExtract = 'XML_WestQaz_270423_1'
-txtFileName = 'XML_WestQaz_270423_1.txt'
+
+pathToFolder = r"V:\4.EstKaz.obl+\10.05.2023\\"
+toExtract = 'XML_4.EstKaz.obl+10.05.2023\\'
+txtFileName = 'XML_4.EstKaz.obl+10.05.2023.txt'
 
 
 
